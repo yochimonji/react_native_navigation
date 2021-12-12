@@ -13,9 +13,21 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Home">
-        <Stack.Screen name="Home" component={HomeScreen} />
-        <Stack.Screen name="User" component={UserScreen} />
+        <Stack.Screen
+          name="Home"
+          component={HomeScreen}
+          options={({ route }) => ({
+            title: `ホーム画面`,
+          })}
+        />
+        <Stack.Screen
+          name="User"
+          component={UserScreen}
+          options={{ title: "ユーザー画面" }}
+        />
       </Stack.Navigator>
+
+      <StatusBar />
     </NavigationContainer>
   );
 }
