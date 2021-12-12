@@ -1,7 +1,12 @@
 import React, { useEffect } from "react";
 import { View, Text, Button } from "react-native";
-import { NavigationProp } from "@react-navigation/native";
 import { useFocusEffect } from "@react-navigation/native";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+
+import MessageScreen from "./MessageScreen";
+import FeedScreen from "./FeedScreen";
+
+const Tab = createBottomTabNavigator();
 
 const HomeScreen = ({ navigation }) => {
   useFocusEffect(
@@ -14,15 +19,10 @@ const HomeScreen = ({ navigation }) => {
   );
 
   return (
-    <View>
-      <Text>ホーム画面</Text>
-      <Button
-        title="ユーザー"
-        onPress={() =>
-          navigation.navigate("User", { userId: 1, userName: "yochimonji" })
-        }
-      />
-    </View>
+    <Tab.Navigator>
+      <Tab.Screen name="Feed" component={FeedScreen} />
+      <Tab.Screen name="Message" component={MessageScreen} />
+    </Tab.Navigator>
   );
 };
 
