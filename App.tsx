@@ -1,45 +1,40 @@
 import { StatusBar } from "expo-status-bar";
 import React from "react";
+import "react-native-gesture-handler";
 import { NavigationContainer } from "@react-navigation/native";
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { createStackNavigator } from "@react-navigation/stack";
 import { Ionicons } from "@expo/vector-icons";
 
 import HomeScreen from "./screens/HomeScreen";
 import UserScreen from "./screens/UserScreen";
 
-const Tab = createBottomTabNavigator();
+const Stack = createStackNavigator();
 
 export default function App() {
   return (
     <NavigationContainer>
-      <Tab.Navigator
+      <Stack.Navigator
         initialRouteName="Home"
-        screenOptions={() => ({
-          tabBarActiveTintColor: "tomato",
-          tabBarInactiveTintColor: "gray",
-        })}
+        // screenOptions={() => ({
+        //   StackBarActiveTintColor: "tomato",
+        //   StackBarInactiveTintColor: "gray",
+        // })}
       >
-        <Tab.Screen
+        <Stack.Screen
           name="Home"
           component={HomeScreen}
           options={{
-            tabBarIcon: ({ color, size }) => (
-              <Ionicons name="ios-home" size={size} color={color} />
-            ),
             title: "ホーム",
           }}
         />
-        <Tab.Screen
+        <Stack.Screen
           name="User"
           component={UserScreen}
           options={{
-            tabBarIcon: ({ color, size }) => (
-              <Ionicons name="person" size={size} color={color} />
-            ),
             title: "ユーザー",
           }}
         />
-      </Tab.Navigator>
+      </Stack.Navigator>
 
       <StatusBar />
     </NavigationContainer>
