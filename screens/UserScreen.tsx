@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
-import { View, Text } from "react-native";
+import { View, Text, Button } from "react-native";
 import { useFocusEffect } from "@react-navigation/native";
 
-const UserScreen = ({ route }) => {
+const UserScreen = ({ navigation }) => {
   useFocusEffect(
     React.useCallback(() => {
       console.log("User Mount");
@@ -15,6 +15,10 @@ const UserScreen = ({ route }) => {
   return (
     <View>
       <Text>ユーザー画面</Text>
+      <Button
+        title="メッセージ"
+        onPress={() => navigation.navigate("Message")}
+      ></Button>
     </View>
   );
 };

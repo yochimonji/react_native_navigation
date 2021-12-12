@@ -1,10 +1,16 @@
 import React from "react";
-import { View, Text } from "react-native";
+import { View, Text, Button } from "react-native";
 
-const FeedScreen = () => {
+const FeedScreen = ({ navigation }) => {
   return (
     <View>
-      <Text>感想画面</Text>
+      <Text>フィード画面</Text>
+      <Button
+        title="ユーザー"
+        onPress={() => {
+          navigation.navigate("User");
+        }}
+      ></Button>
     </View>
   );
 };
